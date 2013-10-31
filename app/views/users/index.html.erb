@@ -1,0 +1,9 @@
+  <% (User.all - @user.friends - requested_friends - [@user]).each do |user| %>
+  <% @user = user %>
+  <%= render 'user_profile' %>
+  <br>
+    <%= form_tag("/request_friend/#{@user.id}", method: "post") do %>
+    <%= submit_tag("add friend") %>
+  <% end %>
+<% end %>
+<%= link_to "Back to your Profile", user_path(current_user) %>
