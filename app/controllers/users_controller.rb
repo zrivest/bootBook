@@ -35,12 +35,23 @@ class UsersController < ApplicationController
   end
 
   def show
+  end
+  def request_friend
+    @pending_friend = User.find(params[:id])
+    @pending_friend.pending_friends << User.find(session[:user_id])    
+    redirect_to users_path
+  end
+
+  def approve_friend
     @user = User.find(session[:user_id])
+    @user.accept_friend(params[:id])
+    redirect_to user_path(@user)
   end
 
   def update
-  end
+    end
 
+  end
   def destroy
   end
 end
