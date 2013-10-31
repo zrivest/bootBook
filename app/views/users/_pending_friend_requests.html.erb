@@ -1,0 +1,7 @@
+<br><br>
+<% pending_friends = @user.pending_friends.each do |pending_friend| %>
+<%= "#{pending_friend.first_name} #{pending_friend.last_name}" %>
+    <%= form_tag("/approve_friend/#{pending_friend.id}", method: "post") do %>
+    <%= submit_tag("add friend") %>
+  <% end %>
+<% end %>
