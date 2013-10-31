@@ -1,0 +1,10 @@
+<%= link_to "Sign up!", new_user_path %>
+
+<% if @error %>
+  <div class="errorExplanation"><%=@error%></div>
+<% end %>
+<%= form_tag (login_path) %>
+
+  Email: <%= text_field_tag  :email  %><br>
+  Password: <%= password_field_tag :password %><br>
+  <%= submit_tag("Login") %>
