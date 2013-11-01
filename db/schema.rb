@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131031155508) do
+ActiveRecord::Schema.define(:version => 20131031193750) do
 
   create_table "cohorts", :force => true do |t|
     t.string   "cohort_name"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20131031155508) do
     t.integer  "friend_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.string   "item_type"
+    t.integer  "relation_id"
+    t.integer  "wall_owner_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "pending_friendships", :force => true do |t|

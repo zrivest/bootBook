@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :friends, through: :friendships
   has_many :pending_friendships, foreign_key: "user_id", class_name: "PendingFriendship"
   has_many :pending_friends, through: :pending_friendships
+  has_many :items
   belongs_to :cohort
 
   has_secure_password
