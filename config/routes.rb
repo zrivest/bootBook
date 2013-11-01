@@ -1,5 +1,5 @@
 BootBook::Application.routes.draw do
- db schema, added resources to config file
+
   resources :users
   post '/request_friend/:id' => 'users#request_friend'
   post '/approve_friend/:id' => 'users#approve_friend'

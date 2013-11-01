@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
+class StatusController < ApplicationController
   def create
-
+    render params.inspect
   end
 
   def destroy
