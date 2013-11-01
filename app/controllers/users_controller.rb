@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+
   def request_friend
     @pending_friend = User.find(params[:id])
     @pending_friend.pending_friends << User.find(session[:user_id])    
@@ -53,13 +54,18 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(session[:user_id])
-    if @user.save
-      redirect_to user_path(@user)
-    else
-      render 'new'
-    end
-
+    # if @user.save
+      @user.update_attributes(params[:user])
+      if request.xhr?
+        render 'show', layout: false
+      else
+        redirect_to user_path(@user)
+      end
+    # else
+    #   render 'new'
   end
+  # end
+
   def destroy
     @user = User.find(session[:user_id])
     @user.destroy 
