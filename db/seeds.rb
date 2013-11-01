@@ -5,3 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Salamanders = Cohort.create(cohort_name: "Salamanders", start_date: "07/10/2013", end_date: "30/11/2013")

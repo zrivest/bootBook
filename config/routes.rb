@@ -1,5 +1,4 @@
 BootBook::Application.routes.draw do
-
   
   resources :users
   post '/request_friend/:id' => 'users#request_friend'
