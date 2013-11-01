@@ -1,0 +1,7 @@
+<div id="status_div">
+  <%= form_for :status, url: statuses_path do |f| %>
+    <%= f.text_field  :status, id: "status", placeholder: "What's on your mind?" %>
+  <br>
+  <%= f.submit "Post", id: "post_status_button" %>
+  <% end %>
+</div>

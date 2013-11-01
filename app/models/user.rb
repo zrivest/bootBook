@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   has_many :pending_friendships, foreign_key: "user_id", class_name: "PendingFriendship"
   has_many :pending_friends, through: :pending_friendships
   has_many :items
+<<<<<<< HEAD
+=======
+  has_many :statuses
+>>>>>>> changed users controller, model and views
   belongs_to :cohort
 
   has_secure_password

@@ -1,11 +1,14 @@
 BootBook::Application.routes.draw do
-  
+ db schema, added resources to config file
   resources :users
   post '/request_friend/:id' => 'users#request_friend'
   post '/approve_friend/:id' => 'users#approve_friend'
   get '/logout' => 'users#logout'
   post '/login' => 'users#login'
   root to: 'welcome#index'
+
+
+  resources :statuses, only: [:destroy, :create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
