@@ -1,4 +1,4 @@
-<%= form_for :user, url: '/users' do |f| %>
+<%= form_for :user, url: '/users', html: {id: "sign_up"} do |f| %>
 <% if @user.errors.any? %>
   <div class="errorExplanation">
     <h2><%= pluralize(@user.errors.count, "error")%> prevented your account from being created.</h2>
@@ -8,12 +8,12 @@
       <% end %>
   </div>
 <% end %>
-  First name: <%= f.text_field  :first_name %><br>
-  Last name:  <%= f.text_field  :last_name  %><br>
-  Password:   <%= f.password_field    :password   %><br>
-  Email:      <%= f.text_field  :email      %><br>
+  First name: <%= f.text_field  :first_name %><div class="error" id="error_name">First Name required!</div><br>
+  Last name:  <%= f.text_field  :last_name  %><div class="error" id="error_last_name">Last Name required!</div><br>
+  Password:   <%= f.password_field    :password   %><div class="error" id="error_password">Password required!</div><br>
+  Email:      <%= f.text_field  :email      %><div class="error" id="error_email">First Email required!</div><br>
   Birthdate:  <%= f.date_select :birthdate %><br>
   Cohort: <%= select(:user, :cohort_id, Cohort.all.collect { |p| [p.cohort_name, p.id]}, {prompt: "Select your cohort"}) %><br>
-  Interest:   <%= f.text_area   :interest   %><br>
+  Interest:   <%= f.text_area   :interest   %><div class="error" id="error_interest">Gotta have some...</div><br>
   <%= f.submit %>
 <% end %>
