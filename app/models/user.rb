@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   validates :cohort_id, :presence => true
   validates :interest, :presence => true
 
+  act_as_liker
+
   def accept_friend(friend_id)
     request = self.pending_friendships.find_by_pending_friend_id(friend_id)
     request.approve!
