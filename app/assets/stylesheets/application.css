@@ -11,3 +11,31 @@
  *= require_self
  *= require_tree .
  */
+
+#status_div {
+  padding: 30px;
+  border: 1px solid black;
+  width: 40%;
+
+}
+#status {
+  width: 90%;
+  height: 40px;
+}
+
+
+#post_status_button {
+  width: 10em;
+  height: 40px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #3B5998;
+  color: white;
+  box-shadow: 2px 2px 2px 2px #888888;
+}
+
+#post_status_button:hover {
+  font-weight: bold;
+
+}
