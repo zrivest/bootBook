@@ -11,3 +11,42 @@
  *= require_self
  *= require_tree .
  */
+
+
+.error {
+  background-color:red;
+  padding:3px;
+  box-shadow:0px 0px 3px #474747;
+  color:white;
+  width:200px;
+  font-size:11px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  /* IE10 Consumer Preview */
+background-image: -ms-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+
+/* Mozilla Firefox */
+background-image: -moz-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+
+/* Opera */
+background-image: -o-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+
+/* Webkit (Safari/Chrome 10) */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FF4242), color-stop(1, #4D0000));
+
+/* Webkit (Chrome 11+) */
+background-image: -webkit-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+
+/* W3C Markup, IE10 Release Preview */
+background-image: linear-gradient(to bottom, #FF4242 0%, #4D0000 100%);
+border-radius:20px;
+display:inline;
+  display:none;
+}
+
+#error_name {
+  border-bottom-left-radius:0px;
+
+}
+
+
+
