@@ -7,6 +7,7 @@ BootBook::Application.routes.draw do
   post '/login' => 'users#login'
   post '/status_update/:id' => 'users#status_update'
   post '/add_comment/:wall_owner_id/:parent_id' => 'users#add_comment'
+  post '/like_item/:item_id' => 'users#like_item'
   root to: 'welcome#index'
 
   # The priority is based upon order of creation:

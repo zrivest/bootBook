@@ -35,6 +35,9 @@ end
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Used to add "posivibes" functionality
+gem "socialization"
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
