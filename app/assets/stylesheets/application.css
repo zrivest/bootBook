@@ -59,3 +59,26 @@ header {
   margin: 0;
 }
 
+.splash {
+  height:1000px;
+  background-image:url(Coyotes.jpg);
+}
+
+.splash_container {
+  position: absolute;
+  top: 25%;
+  width: 80%;
+  margin-left: 10%;
+  height: 33%;
+  background-color:rgba(59,89,152,0.9);;
+}
+
+.splash_inputs {
+  position: relative;
+  top: 10%;
+  margin: 20px auto;
+  width: 33%;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  background-color: white;
+}
