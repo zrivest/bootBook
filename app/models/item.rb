@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
   validates_presence_of :user_id, :item_type, :content
   validates :item_type, inclusion: { in: %w(status comment), message: "%(value) is not a valid item type" }
 
-  act_as_likeable
+  acts_as_likeable
 
   private
 
