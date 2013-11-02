@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
     request = self.pending_friendships.find_by_pending_friend_id(friend_id)
     request.approve!
   end
+
+  def deny_friend(friend_id)
+    request = self.pending_friendships.find_by_pending_friend_id(friend_id)
+    request.destroy
+  end
 end
