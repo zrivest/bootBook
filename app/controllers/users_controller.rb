@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def request_friend
     @pending_friend = User.find(params[:id])
-    @pending_friend.pending_friends << User.find(session[:user_id])    
+    @pending_friend.pending_friends << User.find(session[:user_id])
     redirect_to users_path
   end
 
