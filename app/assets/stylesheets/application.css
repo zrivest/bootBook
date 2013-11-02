@@ -13,7 +13,7 @@
  */
 
 
-.error {
+ .error {
   background-color:red;
   padding:3px;
   box-shadow:0px 0px 3px #474747;
@@ -22,24 +22,24 @@
   font-size:11px;
   font-family: "Comic Sans MS", cursive, sans-serif;
   /* IE10 Consumer Preview */
-background-image: -ms-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+  background-image: -ms-linear-gradient(top, #FF4242 0%, #4D0000 100%);
 
-/* Mozilla Firefox */
-background-image: -moz-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+  /* Mozilla Firefox */
+  background-image: -moz-linear-gradient(top, #FF4242 0%, #4D0000 100%);
 
-/* Opera */
-background-image: -o-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+  /* Opera */
+  background-image: -o-linear-gradient(top, #FF4242 0%, #4D0000 100%);
 
-/* Webkit (Safari/Chrome 10) */
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FF4242), color-stop(1, #4D0000));
+  /* Webkit (Safari/Chrome 10) */
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FF4242), color-stop(1, #4D0000));
 
-/* Webkit (Chrome 11+) */
-background-image: -webkit-linear-gradient(top, #FF4242 0%, #4D0000 100%);
+  /* Webkit (Chrome 11+) */
+  background-image: -webkit-linear-gradient(top, #FF4242 0%, #4D0000 100%);
 
-/* W3C Markup, IE10 Release Preview */
-background-image: linear-gradient(to bottom, #FF4242 0%, #4D0000 100%);
-border-radius:20px;
-display:inline;
+  /* W3C Markup, IE10 Release Preview */
+  background-image: linear-gradient(to bottom, #FF4242 0%, #4D0000 100%);
+  border-radius:20px;
+  display:inline;
   display:none;
 }
 
@@ -48,10 +48,94 @@ display:inline;
 
 }
 
-header {
-  width: 100%;
-  background-color: #3B5998;
-  height: 67px;
+body {
+  padding-top: 60px;
+  background: url(http://www.hdwallpapersplus.com/wp-content/uploads/2013/05/brick-wallpapernet-wallpaper-hd-brick-wallpaper-suwtbwqx.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body a {
+  font-weight:bold;
+  color:rgb(100,200,400);
+}
+
+body a:visited {
+  font-weight:bold;
+  color:rgb(100,200,400);
+}
+
+#container{
+  margin: auto;
+  width: 70%;
+  color:white;
+}
+#navigation {
+  position:fixed;
+  z-index:1;
+  width:100%;
+  height:60px;
+  top:0;
+  left:0;
+  box-shadow:0 1px 6px #2d2d2d;
+  background:rgba(240,240,240,0.75);
+  border-top:1px solid #e6e7e8;
+  border-bottom:1px solid #e6e7e8;
+  .navlinks {
+    list-style:none;
+    li {
+      display:inline-block;
+      margin-right:5px;
+      a {
+        display:block;
+        float:left;
+        padding:0 12px;
+        line-height:60px;
+        font-weight:bold;
+        color:#777777;
+      }
+      a:hover {
+        text-decoration:none;
+        color:#444444;
+        background:rgba(200,200,200,0.9);
+      }
+    }
+  }
+}
+
+form {
+  padding-top: 10px;
+  color: black;
+  display: inline-block;
+  text-align: right;
+}
+.user_splash{
+  padding-left: 20%;
+  padding-right: 20%;
+  background:rgba(100,100,100,0.75);
+}
+
+.status_feed{
+  background:rgba(100,100,100,0.75);
+}
+
+.user_splash a:visited {
+  font-weight:bold;
+  color:rgb(100,200,400);
+}
+.user_splash a {
+  font-weight:bold;
+  color:rgb(100,200,400);
+}
+img.gravatar{
+  width: 150px;
+  float: right;
+}
+.gravatar{
+  border: 5px solid;
+margin-top: -59px;
 }
 
 .header_image {
@@ -61,7 +145,9 @@ header {
 
 .splash {
   height:1000px;
+  width: 1400px;
   background-image:url(Coyotes.jpg);
+  position: fixed;
 }
 
 .splash_container {
@@ -70,7 +156,7 @@ header {
   width: 80%;
   margin-left: 10%;
   height: 33%;
-  background-color:rgba(59,89,152,0.9);;
+  background-color:rgba(59,89,152,0.9);
 }
 
 .splash_inputs {
@@ -81,4 +167,10 @@ header {
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
   background-color: white;
+}
+
+#friends{
+  float: right;
+  margin-top: -30px;
+  padding-right: 20px;
 }

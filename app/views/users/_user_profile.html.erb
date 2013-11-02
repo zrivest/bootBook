@@ -1,7 +1,8 @@
-<div class="non_friend">
+<div class="mini_profile">
 
   <h1>
     <%= gravatar_for @user %>
+
     <% if @user == current_user %>
     <p>Don't like this picture? Want to change it? <a href="https://en.gravatar.com/site/signup/">Click Here!</a></p>
     <% end %>
@@ -10,4 +11,5 @@
   <h3>Name: <%= @user.first_name%> <%= @user.last_name %></h3>
   <h3>Email: <%= @user.email %></h3>
   <h3>interests: <%= @user.interest %></h3>
+  <span id="friends"><%= link_to "Find Your Friends", users_path %></span>
 </div>
