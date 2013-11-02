@@ -1,11 +1,12 @@
 BootBook::Application.routes.draw do
-  
+
   resources :users
   post '/request_friend/:id' => 'users#request_friend'
   post '/approve_friend/:id' => 'users#approve_friend'
   get '/logout' => 'users#logout'
   post '/login' => 'users#login'
-  post '/status_update' => 'users#status_update'
+  post '/status_update/:id' => 'users#status_update'
+  post '/add_comment/:wall_owner_id/:parent_id' => 'users#add_comment'
   root to: 'welcome#index'
 
   # The priority is based upon order of creation:
