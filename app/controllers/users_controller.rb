@@ -94,4 +94,16 @@ class UsersController < ApplicationController
       render 'show'
     end
   end
+
+  def like_item
+    @item = Item.find(params[:item_id])
+    current_user.toggle_like!(@item)
+    if @item.item_type == "comment"
+      redirect_person = @item.parent.wall_owner
+    elsif @item.item_type == "status"
+      redirect_person = @item.wall_owner
+    end
+    redirect_to user_path(redirect_person)
+  end
+
 end
