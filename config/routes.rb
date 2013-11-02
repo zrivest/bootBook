@@ -5,6 +5,7 @@ BootBook::Application.routes.draw do
   post '/approve_friend/:id' => 'users#approve_friend'
   get '/logout' => 'users#logout'
   post '/login' => 'users#login'
+  post '/status_update' => 'users#status_update'
   root to: 'welcome#index'
 
   # The priority is based upon order of creation:
