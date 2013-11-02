@@ -1,0 +1,23 @@
+<h4><a href=<%= user_path(@status.user_id) %>><%= User.find(@status.user_id).first_name %></a>: <%= @status.content %></h4>
+  <ul>
+    <% @status.comments.each do |comment| %>
+        <li><%= link_to User.find(comment.user_id).first_name, user_path(User.find(comment.user_id)) %><%= comment.content %>
+        </li>
+      <% end %>
+      </ul>
+<% @status%>
+<%= form_tag("/add_comment/#{@status.wall_owner_id}/#{@status.id}", method: "post") do %>
+<%= label_tag(:comment, "Comment:") %>
+<%= text_field_tag(:comment) %>
+<%= submit_tag("comment") %>
+<% if @comment %>
+<% if @comment.errors.any? %>
+  <div class="errorExplanation">
+    <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%=msg%></li>
+      <% end %>
+  </div>
+<% end %>
+<% end %>
+<% end %>

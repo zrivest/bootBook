@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def request_friend
     @pending_friend = User.find(params[:id])
-    @pending_friend.pending_friends << User.find(session[:user_id])    
+    @pending_friend.pending_friends << User.find(session[:user_id])
     redirect_to users_path
   end
 
@@ -55,12 +55,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(session[:user_id])
     # if @user.save
-      @user.update_attributes(params[:user])
-      if request.xhr?
-        render 'show', layout: false
-      else
-        redirect_to user_path(@user)
-      end
+    @user.update_attributes(params[:user])
+    if request.xhr?
+      render 'show', layout: false
+    else
+      redirect_to user_path(@user)
+    end
     # else
     #   render 'new'
   end
@@ -68,6 +68,30 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(session[:user_id])
-    @user.destroy 
+    @user.destroy
+  end
+
+  def status_update
+    @item = current_user.items.new(content: params[:status],
+      item_type: "status")
+    @item.wall_owner_id = params[:id]
+    if @item.save
+      redirect_to user_path(params[:id])
+    else
+      render 'show'
+    end
+  end
+
+  def add_comment
+    @comment = current_user.items.create(content: params[:comment],
+      item_type: "comment")
+    @comment.wall_owner_id = params[:wall_owner_id]
+    @comment.relation_id = params[:parent_id]
+    if @comment.save
+      redirect_to user_path(params[:wall_owner_id])
+    else
+      params[:id] = params[:wall_owner_id]
+      render 'show'
+    end
   end
 end

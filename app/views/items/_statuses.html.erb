@@ -1,0 +1,24 @@
+<% if User.find(params[:id]).friends.include?(current_user) || User.find(params[:id]) == current_user %>
+<%= form_tag("/status_update/#{params[:id]}", method: "post") do %>
+<%= label_tag(:status, "Update Status:") %>
+<%= text_field_tag(:status) %>
+<%= submit_tag("update status") %>
+<% if @item %>
+<% if @item.errors.any? %>
+  <div class="errorExplanation">
+    <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%=msg%></li>
+      <% end %>
+  </div>
+<% end %>
+<% end %>
+<% end %>
+<% @statuses = Item.where(wall_owner_id: params[:id]).where(item_type: "status") %>
+<% if @statuses %>
+<% @statuses.reverse.each do |status| %>
+<% @status = status %>
+<%= render partial: 'items/status' %>
+<% end %>
+<% end %>
+<% end %>

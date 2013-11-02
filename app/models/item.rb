@@ -5,10 +5,10 @@ class Item < ActiveRecord::Base
   attr_accessible :item_type, :content
   belongs_to :wall_owner, class_name: "User", foreign_key: "wall_owner_id"
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
-  has_many :comments, class_name: "Item", foreign_key: "id"
+  has_many :comments, class_name: "Item", foreign_key: "relation_id"
   belongs_to :parent, class_name: "Item", foreign_key: "relation_id"
 
-  validates_presence_of :user_id, :item_type
+  validates_presence_of :user_id, :item_type, :content
   validates :item_type, inclusion: { in: %w(status comment), message: "%(value) is not a valid item type" }
 
   private
