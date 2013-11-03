@@ -1,8 +1,28 @@
 <h4><a href=<%= user_path(@status.user_id) %>><%= User.find(@status.user_id).first_name %></a>: <%= @status.content %></h4>
+<div class="likes"><%= @status.likers(User).count %> likes</div>
+<%= form_tag("/like_item/#{@status.id}", method: "post") do %>
+<% if @status.liked_by?(current_user) %>
+  <%= submit_tag("UNLIKE IT") %>
+<% else %>
+  <%= submit_tag("LIKE IT") %>
+<% end %>
+
+<% end %>
   <ul>
     <% @status.comments.each do |comment| %>
-        <li><%= link_to User.find(comment.user_id).first_name, user_path(User.find(comment.user_id)) %><%= comment.content %>
+        <li><%= link_to User.find(comment.user_id).first_name, user_path(User.find(comment.user_id)) %> <%= comment.content %> 
+          <div class="likes">
+            <%= comment.likers(User).count %> likes
+          </div>
+          <%= form_tag("/like_item/#{comment.id}", method: "post") do %>
+          <% if comment.liked_by?(current_user) %>
+            <%= submit_tag("UNLIKE IT") %>
+          <% else %>
+            <%= submit_tag("LIKE IT") %>
+          <% end %>
         </li>
+        <% end %>
+
       <% end %>
       </ul>
 <% @status%>
@@ -21,3 +41,4 @@
 <% end %>
 <% end %>
 <% end %>
+

@@ -74,4 +74,41 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @user.destroy
   end
+
+
+  def status_update
+    @item = current_user.items.new(content: params[:status],
+      item_type: "status")
+    @item.wall_owner_id = params[:id]
+    if @item.save
+      redirect_to user_path(params[:id])
+    else
+      render 'show'
+    end
+  end
+
+  def add_comment
+    @comment = current_user.items.create(content: params[:comment],
+      item_type: "comment")
+    @comment.wall_owner_id = params[:wall_owner_id]
+    @comment.relation_id = params[:parent_id]
+    if @comment.save
+      redirect_to user_path(params[:wall_owner_id])
+    else
+      params[:id] = params[:wall_owner_id]
+      render 'show'
+    end
+  end
+
+  def like_item
+    @item = Item.find(params[:item_id])
+    current_user.toggle_like!(@item)
+    if @item.item_type == "comment"
+      redirect_person = @item.parent.wall_owner
+    elsif @item.item_type == "status"
+      redirect_person = @item.wall_owner
+    end
+    redirect_to user_path(redirect_person)
+  end
+
 end
