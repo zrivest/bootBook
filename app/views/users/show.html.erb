@@ -12,7 +12,6 @@
 <%= link_to "Deauthorize your Account", user_path(current_user), :method=>:delete, data: { confirm: "Are you sure? This is permanent" } %> |
 </div>
 <% end %>
-<%= link_to "Log out", logout_path %>
 </div>
 <%= render 'pending_friend_requests' %>
 <%= render 'user_status_feed' %>

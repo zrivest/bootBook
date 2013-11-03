@@ -77,37 +77,34 @@ body a:visited {
   color:white;
 }
 #navigation {
+  display:block;
+  display:inline-block;
   position:fixed;
+  margin-top: -10px;
   z-index:1;
   width:100%;
-  height:60px;
+  height:70px;
   top:0;
   left:0;
   box-shadow:0 1px 6px #2d2d2d;
-  background:rgba(240,240,240,0.75);
+  background:rgba(250,250,250,0.99);
   border-top:1px solid #e6e7e8;
   border-bottom:1px solid #e6e7e8;
-  .navlinks {
-    list-style:none;
-    li {
-      display:inline-block;
-      margin-right:5px;
-      a {
+}
+#navigation a {
         display:block;
         float:left;
-        padding:0 12px;
-        line-height:60px;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height:69px;
         font-weight:bold;
         color:#777777;
       }
-      a:hover {
+#navigation a:hover {
         text-decoration:none;
         color:#444444;
         background:rgba(200,200,200,0.9);
       }
-    }
-  }
-}
 
 .update_status{
   text-align: center;
