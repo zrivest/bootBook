@@ -1,5 +1,27 @@
   <div class="status_feed" >
-<h3> STATUS FEED </h3>
-  <h2><% @friends = @user.friends %></h2>
-  <%= render partial: "items/statuses" %>
-</div>
+    <div class="update_status">
+    <h3> STATUS FEED </h3>
+      <% if User.find(params[:id]).friends.include?(current_user) || User.find(params[:id]) == current_user %>
+      <%= form_tag("/status_update/#{params[:id]}", method: "post") do %>
+      <%= label_tag(:status, "Update Status:") %>
+      <%= text_field_tag(:status) %>
+      <%= submit_tag("update status") %>
+      <% if @item %>
+      <% if @item.errors.any? %>
+      <div class="errorExplanation">
+        <ul>
+          <% @item.errors.full_messages.each do |msg| %>
+          <li><%=msg%></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <% end %>
+      <% end %>
+      <% end %>
+    </div>
+    <%= render partial: "items/statuses" %>
+    </div>
+    <div class="friend_list">
+      <%= render 'friends_list' %>
+  </div>

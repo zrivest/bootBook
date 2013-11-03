@@ -10,9 +10,9 @@
 <div class="profile_options">
 <%= link_to "Edit your Profile", edit_user_path(current_user), :id => 'edit-profile' %> |
 <%= link_to "Deauthorize your Account", user_path(current_user), :method=>:delete, data: { confirm: "Are you sure? This is permanent" } %> |
+</div>
 <% end %>
 <%= link_to "Log out", logout_path %>
-</div>
 </div>
 <%= render 'pending_friend_requests' %>
 <%= render 'user_status_feed' %>

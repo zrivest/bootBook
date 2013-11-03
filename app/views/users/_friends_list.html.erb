@@ -1,0 +1,8 @@
+<% @user.friends.each do |friend| %>
+  <div class="friend" >
+  <% @user = friend %>
+  <%= render 'user_profile' %>
+  <%= link_to "Profile", user_path(@user) %>
+</div>
+  <% end %>
+<% @user = params[:id] %>

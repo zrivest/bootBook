@@ -48,6 +48,10 @@
 
 }
 
+html {
+  padding-bottom: 200px;
+}
+
 body {
   padding-top: 60px;
   background: url(http://www.hdwallpapersplus.com/wp-content/uploads/2013/05/brick-wallpapernet-wallpaper-hd-brick-wallpaper-suwtbwqx.jpg) no-repeat center center fixed;
@@ -105,20 +109,96 @@ body a:visited {
   }
 }
 
-form {
+.update_status{
+  text-align: center;
+}
+
+.likes{
+  padding-left: 30px;
+}
+.like_comment_button{
+  float:right;
+  margin-top: -20px;
+  padding-right: 200px;
+}
+
+.update_status label{
+  color: white;
+}
+
+.friend_list{
+  width: 40%;
+  float: right;
+}
+
+.friend{
+  background:rgba(150,150,150,0.85);
+  height: 200px;
+  padding-top: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.status{
+  margin-top: 2px;
+  border: black solid 1px;
+    background:rgba(100,100,100,0.75);
+}
+
+.status ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+.comments li{
+  display: inline;
+  list-style: none;
+  padding-left: 20px;
+}
+
+.comments:nth-child(even){
+  background:rgba(150,150,150,0.85);
+}
+.comments:nth-child(odd){
+ background:rgba(150,150,150,0.55);
+}
+
+#user_interest{
+  width: 50%;
+  height: 300px;
+}
+
+#sign_up{
+  padding-top: 100px;
+  text-align: right;
+  width: 50%;
+}
+
+#login{
   padding-top: 10px;
   color: black;
   display: inline-block;
   text-align: right;
 }
 .user_splash{
+  height: 265px;
   padding-left: 20%;
   padding-right: 20%;
   background:rgba(100,100,100,0.75);
 }
 
+.user_splash .gravatar{
+    border: 5px solid;
+}
+
 .status_feed{
-  background:rgba(100,100,100,0.75);
+  width: 50%;
+  float: left;
+}
+
+#user_grav{
+  float: right;
+  margin-top: -59px;
 }
 
 .user_splash a:visited {
@@ -132,10 +212,6 @@ form {
 img.gravatar{
   width: 150px;
   float: right;
-}
-.gravatar{
-  border: 5px solid;
-margin-top: -59px;
 }
 
 .header_image {
@@ -157,6 +233,11 @@ margin-top: -59px;
   margin-left: 10%;
   height: 33%;
   background-color:rgba(59,89,152,0.9);
+}
+
+.friend_list .gravatar{
+  border: 3px solid;
+  margin-top: 0px;
 }
 
 .splash_inputs {
