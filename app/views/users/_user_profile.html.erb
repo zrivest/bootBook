@@ -1,12 +1,12 @@
 <div class="mini_profile">
 
   <h1>
-    <% if @user == current_user %>
+    <% if @user == current_user && params[:id].to_i == current_user.id  %>
     <span id="user_grav"><%= gravatar_for @user %></span>
     <% else %>
 <%= gravatar_for @user %>
     <% end %>
-    <% if @user == current_user %>
+    <% if @user == current_user && params[:id].to_i == current_user.id %>
     <p>Don't like this picture? Want to change it? <a href="https://en.gravatar.com/site/signup/">Click Here!</a></p>
     <% end %>
   </h1>
@@ -14,7 +14,7 @@
   <h3>Name: <%= @user.first_name%> <%= @user.last_name %></h3>
   <h3>Email: <%= @user.email %></h3>
   <h3>interests: <%= @user.interest %></h3>
-  <% if current_user == @user %>
+  <% if current_user == @user && params[:id].to_i == current_user.id  %>
   <span id="friends"><%= link_to "Find Your Friends", users_path %></span>
   <% end %>
 </div>
