@@ -3,8 +3,7 @@ require 'spec_helper'
 describe "signing up a user" do
   let(:user_data) { {first_name: "Zach", last_name: "Rivest", email: "zrivest@gmail.com", password: "123", interest: "making sweet friends"} }
 
-
-  it "should successfully signup a user and display user show page" do
+  it "should successfully sign up a user and display user show page" do
     FactoryGirl.create(:cohort, cohort_name: "Ocelots")
     sign_up_as_user(user_data)
     page.should have_text("Hey there, Zach!")
@@ -49,5 +48,4 @@ describe "signing up a user" do
     sign_up_as_user(user_data)
     page.should have_text("Interest can't be blank")
   end
-
 end

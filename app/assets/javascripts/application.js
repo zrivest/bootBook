@@ -15,13 +15,11 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('#edit-profile').on('submit', function(event){
+  $('#edit-profile').on('click', function(event){
     event.preventDefault();
-
     $(this).hide();
 
     var url = $(this).attr('href');
-    console.log(url);
 
     $.get(url, function(form){
       $('.profile_user').replaceWith(form);
@@ -30,7 +28,7 @@ $(document).ready(function(){
 
   $('body').on('submit', '.edit_user', function(event){
     event.preventDefault();
-
+    
     var url = $(this).attr('action');
     var data = $(this).serialize();
 
@@ -114,4 +112,3 @@ $(document).ready(function() {
   }
   });
 });
-

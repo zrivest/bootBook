@@ -3,13 +3,13 @@
 <% end %>
 <div class="profile_user">
   <% @user = User.find(params[:id]) %>
-<%= render 'user_profile' %>
+  <%= render 'user_profile' %>
 </div><br>
 <% if current_user == @user %>
 <div class="profile_options">
-<%= link_to "Edit your Profile", edit_user_path(current_user), :id => 'edit-profile' %>
+<%= link_to "Edit your Profile", edit_user_path(current_user), :id => 'edit-profile' %><br>
 <%= link_to "Deauthorize your Account", user_path(current_user), :method=>:delete, data: { confirm: "Are you sure? This is permanent" } %>
-<% end %>
+<% end %><br>
 
 <%= link_to "Log out", logout_path %>
 </div><br>

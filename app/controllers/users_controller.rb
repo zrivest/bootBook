@@ -34,6 +34,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(session[:user_id])
+    if request.xhr?
+      render 'edit', layout: false
+    end
   end
 
   def show
@@ -56,42 +59,19 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     # if @user.save
     @user.update_attributes(params[:user])
-    if request.xhr?
-      render 'show', layout: false
+    if @user.save
+      if request.xhr?
+        render 'show', layout: false
+      else
+        redirect_to user_path(@user)
+      end
     else
-      redirect_to user_path(@user)
+      render 'edit'
     end
-    # else
-    #   render 'new'
   end
-  # end
 
   def destroy
     @user = User.find(session[:user_id])
     @user.destroy
-  end
-
-  def status_update
-    @item = current_user.items.new(content: params[:status],
-      item_type: "status")
-    @item.wall_owner_id = params[:id]
-    if @item.save
-      redirect_to user_path(params[:id])
-    else
-      render 'show'
-    end
-  end
-
-  def add_comment
-    @comment = current_user.items.create(content: params[:comment],
-      item_type: "comment")
-    @comment.wall_owner_id = params[:wall_owner_id]
-    @comment.relation_id = params[:parent_id]
-    if @comment.save
-      redirect_to user_path(params[:wall_owner_id])
-    else
-      params[:id] = params[:wall_owner_id]
-      render 'show'
-    end
   end
 end

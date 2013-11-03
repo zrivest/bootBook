@@ -10,8 +10,6 @@
 <% end %>
   First name: <%= f.text_field  :first_name %><br>
   Last name:  <%= f.text_field  :last_name  %><br>
-  Password:   <%= f.password_field    :password   %><br>
-  Email:      <%= f.text_field  :email      %><br>
   Birthdate:  <%= f.date_select :birthdate %><br>
   Cohort: <%= select(:user, :cohort_id, Cohort.all.collect { |p| [p.cohort_name, p.id]}, {prompt: "Select your cohort"}) %><br>
   Interest:   <%= f.text_area   :interest   %><br>
