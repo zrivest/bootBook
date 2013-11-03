@@ -52,6 +52,12 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def deny_friend
+    @user = User.find(session[:user_id])
+    @user.deny_friend(params[:id])
+    redirect_to user_path(@user)
+  end
+
   def update
     @user = User.find(session[:user_id])
     # if @user.save

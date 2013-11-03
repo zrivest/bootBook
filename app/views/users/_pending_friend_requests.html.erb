@@ -4,4 +4,8 @@
     <%= form_tag("/approve_friend/#{pending_friend.id}", method: "post") do %>
     <%= submit_tag("add friend") %>
   <% end %>
+
+  <%= form_tag("/deny_friend/#{pending_friend.id}", method: "post") do %>
+    <%= submit_tag("deny friend") %>
+  <% end %>
 <% end %>

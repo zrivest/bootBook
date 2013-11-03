@@ -3,6 +3,7 @@ BootBook::Application.routes.draw do
   resources :users
   post '/request_friend/:id' => 'users#request_friend'
   post '/approve_friend/:id' => 'users#approve_friend'
+  post '/deny_friend/:id' => 'users#deny_friend'
   get '/logout' => 'users#logout'
   post '/login' => 'users#login'
   post '/status_update/:id' => 'users#status_update'

@@ -6,7 +6,7 @@ class PendingFriendship < ActiveRecord::Base
   validates :user_id, presence: true
   validates :pending_friend_id, presence: true
   validates_uniqueness_of :pending_friend_id, scope: :user_id
-  
+
   def approve!
     friendship = Friendship.new
     friendship.user_id = self.user_id
@@ -18,5 +18,4 @@ class PendingFriendship < ActiveRecord::Base
     friendship.save!
     self.destroy
   end
-  
 end
